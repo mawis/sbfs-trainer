@@ -1,0 +1,37 @@
+language: android
+jdk:
+  - oraclejdk8
+android:
+  components:
+    - tools
+    - platform-tools
+    - build-tools-26.0.1
+    - android-26
+    - extra-android-m2repository
+  licenses:
+    - android-sdk-license-.+
+
+before_install:
+    - gem install fastlane
+
+install:
+    - .travis/decrypt_keystore
+
+before_script:
+    - export BRANCH=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then echo $TRAVIS_BRANCH; else echo $TRAVIS_PULL_REQUEST_BRANCH; fi)
+    - echo "TRAVIS_BRANCH=$TRAVIS_BRANCH, PR=$PR, BRANCH=$BRANCH"
+
+script:
+    - if [ "$BRANCH" == "master" ]; then ./gradlew assembleRelease; else ./gradlew build; fi
+
+after_success:
+    - if [ "$BRANCH" == "master" ]; then .travis/deploy ; fi
+
+before_cache:
+    - rm -f $HOME/.gradle/caches/modules-2/modules-2.lock
+
+cache:
+  directories:
+    - $HOME/.m2
+    - $HOME/.gradle/caches/
+    - $HOME/.gradle/wrapper/

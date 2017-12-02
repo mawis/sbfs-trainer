@@ -1,0 +1,19 @@
+#! /bin/bash
+
+set -e
+
+VERSION=$(grep android:versionName src/main/AndroidManifest.xml | sed -e 's/.*"\(.*\)".*/\1/')
+if [ "$VERSION" == "" ] ; then
+    echo No version detected.
+    exit 1
+fi
+echo Detected current version: $VERSION
+
+if [ ! -f build/outputs/apk/sbfs-trainer-release.apk ] ; then
+    echo No release APK file found. Cannot deploy to Google Play.
+    echo Content of build/outputs is:
+    ls -R build/outputs
+    exit 1
+fi
+
+fastlane supply -j trainer_deployment_key.json -p eu.wimmerinformatik.sbfs -b build/outputs/apk/sbfs-trainer-release.apk -a alpha

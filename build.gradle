@@ -51,13 +51,19 @@ repositories {
     }
 }
 
+static def buildNumber() {
+    def build = System.getenv("TRAVIS_BUILD_NUMBER")
+    if (build == null || build.isEmpty())
+    	build = 1
+    return build
+}
+
 task('increaseVersionCode') << {
     def manifestFile = file("src/main/AndroidManifest.xml")
     def pattern = Pattern.compile("versionCode=\"(\\d+)\"")
     def manifestText = manifestFile.getText()
     def matcher = pattern.matcher(manifestText)
-    matcher.find()
-    def versionCode = Integer.parseInt(matcher.group(1))
+    def versionCode = buildNumber() + 100
     def manifestContent = matcher.replaceAll("versionCode=\"" + ++versionCode + "\"")
     manifestFile.write(manifestContent)
 }
@@ -71,7 +77,7 @@ task('incrementVersionName') << {
     def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
     def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
     def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
-    def buildVersion = Integer.parseInt(matcherVersionNumber.group(4))
+    def buildVersion = buildNumber()
     def mNextVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "." + (buildVersion + 1)
     def manifestContent = matcherVersionNumber.replaceAll("versionName=\"" + mNextVersionName + "\"")
     manifestFile.write(manifestContent)

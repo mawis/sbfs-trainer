@@ -6,8 +6,8 @@
 *.bak
 *.orig
 
-
 private.properties
 release.keystore
+trainer_deployment_key.json
 /build/
 /.gradle/
