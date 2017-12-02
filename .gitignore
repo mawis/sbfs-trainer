@@ -1,9 +1,3 @@
-# Maven
-/LRC-Trainer/target/**
-/SKS-Trainer/target/**
-/SRC-Trainer/target/**
-/UBI-Trainer/target/**
-
 # Vim
 *~
 .*.swp
@@ -15,7 +9,5 @@
 
 private.properties
 release.keystore
-/SBFB-Trainer/build/**
-/SBFB-Trainer/.gradle/**
-/SBFS-Trainer/build/**
-/SBFS-Trainer/.gradle/**
+/build/
+/.gradle/
