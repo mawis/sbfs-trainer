@@ -17,6 +17,7 @@ android {
     defaultConfig {
 	minSdkVersion 7
 	targetSdkVersion 26
+	setProperty("archivesBaseName", "sbfs-trainer")
     }
 
     signingConfigs {
