@@ -6,4 +6,5 @@ export LANG=C.UTF-8
 wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
 unzip sdk-tools-linux-*.zip
 export ANDROID_HOME=$(pwd)/android
+yes | ./tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} --update
 yes | ./tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platforms;android-29"
