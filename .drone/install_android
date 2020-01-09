@@ -3,7 +3,7 @@
 set -e
 
 export LANG=C.UTF-8
-wget https://dl.google.com/android/repository/commandlinetools-linux-5842447_latest.zip
-unzip commandlinetools-linux-*.zip
+wget https://dl.google.com/android/repository/sdk-tools-linux-4333796.zip
+unzip sdk-tools-linux-*.zip
 export ANDROID_HOME=$(pwd)/android
 yes | ./tools/bin/sdkmanager --sdk_root=${ANDROID_HOME} "platforms;android-29"

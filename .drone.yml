@@ -12,3 +12,22 @@ steps:
   - .drone/decrypt_keystore
   - .drone/install_android
   - .drone/build_app
+- name: notify
+  image: drillster/drone-email
+  settings:
+    host:
+      from_secret: SMTP_HOST
+    username:
+      from_secret: SMTP_USER
+    password:
+      from_secret: SMTP_PASS
+    from:
+      from_secret: SMTP_FROM
+    recipients: [ m@tthias.eu ]
+    attachments:
+    - build/reports/lint-results.html
+    - build/reports/lint-results.xml
+    - build/outputs/apk/sbfs-trainer-release.apk
+  when:
+    status: [ success, failure ]
+    event: [ push ]

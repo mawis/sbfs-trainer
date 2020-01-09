@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 	package="eu.wimmerinformatik.sbfs"
 	android:installLocation="auto"
-	android:versionCode="15"
+	android:versionCode="102"
 	android:versionName="1.6.0.2" >
 
 	<application
