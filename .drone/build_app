@@ -1,0 +1,7 @@
+#! /bin/bash
+
+set -e
+
+export LANG=C.UTF-8
+export ANDROID_HOME=$(pwd)/android
+./gradlew build

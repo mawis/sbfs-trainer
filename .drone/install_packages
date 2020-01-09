@@ -1,0 +1,7 @@
+#! /bin/bash
+
+set -e
+
+export LANG=C.UTF-8
+apt-get update
+apt-get install -y wget unzip openjdk-8-jdk gnupg

@@ -11,3 +11,13 @@ release.keystore
 trainer_deployment_key.json
 /build/
 /.gradle/
+
+.knownPackages
+tools
+platforms
+platform-tools
+patcher
+licenses
+emulator
+commandlinetools-linux*.zip
+build-tools
