@@ -27,7 +27,7 @@ steps:
     attachments:
     - build/reports/lint-results.html
     - build/reports/lint-results.xml
-    - build/outputs/apk/sbfs-trainer-release.apk
+    - build/outputs/apk/release/sbfs-trainer-release.apk
   when:
     status: [ success, failure ]
     event: [ push ]
