@@ -1,6 +1,8 @@
-#! /bin/bash
+#! /usr/bin/env bash
 
 set -e
+
+export LANG=C.UTF-8
 
 if [ ! -f build/outputs/apk/release/sbfs-trainer-release.apk ] ; then
     echo No release APK file found. Cannot deploy to Google Play.
@@ -9,4 +11,4 @@ if [ ! -f build/outputs/apk/release/sbfs-trainer-release.apk ] ; then
     exit 1
 fi
 
-fastlane supply -j trainer_deployment_key.json -p eu.wimmerinformatik.sbfs -b build/outputs/apk/release/sbfs-trainer-release.apk -a alpha
+fastlane supply -j trainer_deployment_key.json -p eu.wimmerinformatik.sbfs -b build/outputs/apk/release/sbfs-trainer-release.apk -a alpha || echo "Waiting for fastlane update in NixPkgs ... manual deployment needed!"

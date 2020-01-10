@@ -1,9 +1,0 @@
-#! /bin/bash
-
-set -e
-
-export LANG=C.UTF-8
-export DEBIAN_FRONTEND=noninteractive
-apt-get update
-apt-get install -y ruby-dev g++ make
-gem install fastlane

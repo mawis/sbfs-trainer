@@ -13,10 +13,9 @@ steps:
   - .drone/install_android
   - .drone/build_app
 - name: deploy
-  image: debian:buster
+  image: nixos/nix:latest
   commands:
-  - .drone/install_fastlane
-  - .drone/deploy
+  - nix-shell --run .drone/deploy -p bash fastlane
 - name: notify
   image: drillster/drone-email
   settings:
