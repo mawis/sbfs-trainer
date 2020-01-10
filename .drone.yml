@@ -16,6 +16,9 @@ steps:
   image: nixos/nix:latest
   commands:
   - nix-shell --run .drone/deploy -p bash fastlane
+  when:
+    branch: [ master ]
+    event: [ push ]
 - name: notify
   image: drillster/drone-email
   settings:
@@ -31,6 +34,7 @@ steps:
     attachments:
     - build/reports/lint-results.html
     - build/reports/lint-results.xml
+    - build/outputs/apk/debug/sbfs-trainer-debug.apk
     - build/outputs/apk/release/sbfs-trainer-release.apk
     - build/outputs/apk/release/output.json
   when:
