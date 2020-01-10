@@ -2,39 +2,43 @@ import java.util.regex.Pattern
 
 buildscript {
     repositories {
-	jcenter()
+        google()
+        jcenter()
     }
     dependencies {
-	classpath 'com.android.tools.build:gradle:2.3.0'
+        classpath 'com.android.tools.build:gradle:3.1.1'
     }
 }
 apply plugin: 'android'
+apply from: 'versioning.gradle'
 
 android {
-    compileSdkVersion 'android-26'
-    buildToolsVersion '26.0.1'
+    compileSdkVersion 'android-29'
+    buildToolsVersion '29.0.2'
 
     defaultConfig {
-	minSdkVersion 7
-	targetSdkVersion 26
-	setProperty("archivesBaseName", "sbfs-trainer")
+        minSdkVersion 7
+        targetSdkVersion 29
+        setProperty("archivesBaseName", "sbfs-trainer")
+        versionCode buildVersionCode()
+        versionName buildVersionName()
     }
 
     signingConfigs {
-	release {
-	    storeFile file("release.keystore")
-	    storePassword TRAINER_SIGNING_PASSWORD
-	    keyAlias "android-release-key"
-	    keyPassword TRAINER_SIGNING_PASSWORD
-	}
+        release {
+            storeFile file("release.keystore")
+            storePassword TRAINER_SIGNING_PASSWORD
+            keyAlias "android-release-key"
+            keyPassword TRAINER_SIGNING_PASSWORD
+        }
     }
 
     buildTypes {
-	release {
-	    minifyEnabled false
-	    signingConfig signingConfigs.release
-	    proguardFile getDefaultProguardFile('proguard-android.txt')
-	}
+        release {
+            minifyEnabled false
+            signingConfig signingConfigs.release
+            proguardFile getDefaultProguardFile('proguard-android.txt')
+        }
     }
 }
 
@@ -43,49 +47,12 @@ dependencies {
 
 repositories {
     mavenCentral()
+    google()
+    jcenter()
     maven {
-	url "https://mvnrepository.com/artifact/us.bpsm/edn-java"
+        url "https://mvnrepository.com/artifact/us.bpsm/edn-java"
     }
     maven {
-	url "https://maven.google.com"
-    }
-}
-
-static def buildNumber() {
-    def build = System.getenv("TRAVIS_BUILD_NUMBER")
-    if (build == null || build.isEmpty())
-    	build = 1
-    return build
-}
-
-task('increaseVersionCode') << {
-    def manifestFile = file("src/main/AndroidManifest.xml")
-    def pattern = Pattern.compile("versionCode=\"(\\d+)\"")
-    def manifestText = manifestFile.getText()
-    def matcher = pattern.matcher(manifestText)
-    def versionCode = buildNumber() + 100
-    def manifestContent = matcher.replaceAll("versionCode=\"" + ++versionCode + "\"")
-    manifestFile.write(manifestContent)
-}
-
-task('incrementVersionName') << {
-    def manifestFile = file("src/main/AndroidManifest.xml")
-    def patternVersionNumber = Pattern.compile("versionName=\"(\\d+)\\.(\\d+)\\.(\\d+)\\.(\\d+)\"")
-    def manifestText = manifestFile.getText()
-    def matcherVersionNumber = patternVersionNumber.matcher(manifestText)
-    matcherVersionNumber.find()
-    def majorVersion = Integer.parseInt(matcherVersionNumber.group(1))
-    def minorVersion = Integer.parseInt(matcherVersionNumber.group(2))
-    def pointVersion = Integer.parseInt(matcherVersionNumber.group(3))
-    def buildVersion = buildNumber()
-    def mNextVersionName = majorVersion + "." + minorVersion + "." + pointVersion + "." + (buildVersion + 1)
-    def manifestContent = matcherVersionNumber.replaceAll("versionName=\"" + mNextVersionName + "\"")
-    manifestFile.write(manifestContent)
-}
-
-tasks.whenTaskAdded { task ->
-    if (task.name == 'generateReleaseBuildConfig' || task.name == 'generateDebugBuildConfig') {
-	task.dependsOn 'increaseVersionCode'
-	task.dependsOn 'incrementVersionName'
+        url "https://maven.google.com"
     }
 }

@@ -1,0 +1,42 @@
+kind: pipeline
+name: default
+
+steps:
+- name: build
+  image: debian:stretch
+  environment:
+    DECRYPTKEY:
+      from_secret: DECRYPTKEY
+  commands:
+  - .drone/install_packages
+  - .drone/decrypt_keystore
+  - .drone/install_android
+  - .drone/build_app
+- name: deploy
+  image: nixos/nix:latest
+  commands:
+  - nix-shell --run .drone/deploy -p bash fastlane
+  when:
+    branch: [ master ]
+    event: [ push ]
+- name: notify
+  image: drillster/drone-email
+  settings:
+    host:
+      from_secret: SMTP_HOST
+    username:
+      from_secret: SMTP_USER
+    password:
+      from_secret: SMTP_PASS
+    from:
+      from_secret: SMTP_FROM
+    recipients: [ m@tthias.eu ]
+    attachments:
+    - build/reports/lint-results.html
+    - build/reports/lint-results.xml
+    - build/outputs/apk/debug/sbfs-trainer-debug.apk
+    - build/outputs/apk/release/sbfs-trainer-release.apk
+    - build/outputs/apk/release/output.json
+  when:
+    status: [ success, failure ]
+    event: [ push ]

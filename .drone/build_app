@@ -1,0 +1,12 @@
+#! /bin/bash
+
+set -e
+
+export LANG=C.UTF-8
+export ANDROID_HOME=$(pwd)/android
+
+if [ "${DRONE_PULL_REQUEST}" != "" ] ; then
+    ./gradlew assembleDebug test
+else
+    ./gradlew build
+fi

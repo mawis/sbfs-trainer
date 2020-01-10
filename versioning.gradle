@@ -1,0 +1,18 @@
+ext {
+  buildNumber = {
+    def build = System.getenv("DRONE_BUILD_NUMBER")
+    if (build == null || build.isEmpty())
+        build = 1
+    else
+        build = Integer.parseInt(build)
+    build
+  }
+
+  buildVersionCode = {
+    buildNumber() + 3100
+  }
+
+  buildVersionName = {
+    version + "." + buildNumber()
+  }
+}
