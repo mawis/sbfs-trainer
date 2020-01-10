@@ -12,6 +12,11 @@ steps:
   - .drone/decrypt_keystore
   - .drone/install_android
   - .drone/build_app
+- name: deploy
+  image: debian:buster
+  commands:
+  - .drone/install_fastlane
+  - .drone/deploy
 - name: notify
   image: drillster/drone-email
   settings:
