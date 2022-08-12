@@ -1090,10 +1090,10 @@
   </question>
   <question id='9745' reference='156'>
     <text>Was sind Fahrwasser im Sinne der Seeschifffahrtsstraßen-Ordnung (SeeSchStrO) und der Schifffahrtsordnung Emsmündung (EmsSchO)?</text>
-    <correct>Es sind Wasserflächen, die durchgehend durch Fahrwasserzeichnung begrenzt oder gekenntzeichnet sind, binnenwärts der Flussmündungen auch nicht gekennzeichnete Wasserflächen, die für die durchgehende Schifffahrt bestimmt sind.</correct>
+    <correct>Es sind Wasserflächen, die durchgehend durch Fahrwasserseitenbezeichnung begrenzt oder gekennzeichnet sind, binnenwärts der Flussmündungen auch nicht gekennzeichnete Wasserflächen, die für die durchgehende Schifffahrt bestimmt sind.</correct>
     <incorrect>Es sind Wasserflächen, die für Seeschiffe zugelassen sind; binnenwärts der Flussmündungen sind auch Binnenschiffe und Sportboote zugelassen.</incorrect>
     <incorrect>Es sind Wasserflächen, die durchgehend durch Fahrwasserseitenbezeichnung begrenzt oder gekennzeichnet sind und auf denen das Wasserskifahren sowie das Fahren mit Wassermotorrädern erlaubt ist, sofern die durchgehende Schifffahrt nicht behindert wird.</incorrect>
-    <incorrect>Es sind Wasserflächen, die durchgehend durch Fahrwasserbezeichnung begrenzt oder gekennzeichnet sind und auf denen die Sportbootführerscheinverordnung Gültigkeit hat.</incorrect>
+    <incorrect>Es sind Wasserflächen, die durchgehend durch Fahrwasserseitenbezeichnung begrenzt oder gekennzeichnet sind und auf denen die Sportbootführerscheinverordnung Gültigkeit hat.</incorrect>
   </question>
   <question id='9746' reference='157'>
     <text>Welches ist – außer in Wattgebieten – die Steuerbordseite eines Fahrwassers?</text>
@@ -1923,7 +1923,7 @@
   </question>
   <question id='9864' reference='276'>
     <text>Mit welchen Hilfsmitteln kann eine im Wasser treibende Person schnell und sicher an Bord genommen werden?</text>
-    <correct>Leinenverbindung, Rettungschlaufe, Bergenetz, Talje, Badeleiter, Großbaum.</correct>
+    <correct>Leinenverbindung, Rettungsschlaufe, Bergenetz, Talje, Badeleiter, Großbaum.</correct>
     <incorrect>Leinenverbindung, Badeleiter, Treibanker, Rettungsschlaufe, Bergenetz, Talje.</incorrect>
     <incorrect>Leinenverbindung, Großbaum, Ankerkette, Talje, Badeleiter, Rettungsschlaufe.</incorrect>
     <incorrect>Leinenverbindung, Badeleiter, Rettungsboje, Bergenetz, Großbaum, Talje.</incorrect>
@@ -1947,7 +1947,7 @@
     <correct>Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgeräts, dreimaliges Geben (● ● ● – – – ● ● ●) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.</correct>
     <incorrect>Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (● ● ● – – – ● ● ●) per Licht oder Ton, Seewasserfärber, seitliches Heben und Senken der Arme, Ball über oder unter Flaggensignal NC, EPIRB, DSC, Radartransponder.</incorrect>
     <incorrect>Leuchtrakete mit orangem Leuchtstern oder orange brennende Handfackel, rotes Rauchsignal, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (● ● ● – – – ● ● ●) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.</incorrect>
-    <incorrect>Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (– – – ● ● ● – – –) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal MC, EPIRB, DSC, Radartransponder.</incorrect>
+    <incorrect>Leuchtrakete mit rotem Leuchtstern oder rot brennende Handfackel, anhaltendes Ertönen eines Nebelsignalgerätes, dreimaliges Geben (– – – ● ● ● – – –) per Licht oder Ton, dreimal das Wort MAYDAY über Sprechfunk, seitliches Heben und Senken der Arme, Flaggensignal NC, EPIRB, DSC, Radartransponder.</incorrect>
   </question>
   <question id='9868' reference='280'>
     <text>Was bedeutet das Flaggensignal „NC“ auf einem Fahrzeug?</text>
